@@ -1,6 +1,14 @@
 # Slack Bot Invoices
 
-Bot do Slack desenvolvido para auxiliar a Help Agency na administração de faturas.
+Bot do Slack desenvolvido para auxiliar a Refine Agency na administração de faturas.
+
+## 🤖 Funcionalidades
+
+- Registro de faturas com múltiplos serviços
+- Cálculo automático de valores em tokens e stablecoins
+- Visualização detalhada das faturas
+- Suporte a múltiplos clientes
+- Interface intuitiva através de modais do Slack
 
 ## 🚀 Tecnologias
 
@@ -47,6 +55,15 @@ Para executar o projeto em modo de desenvolvimento:
 yarn dev
 ```
 
+## 📸 Screenshots
+
+### Resumo da Fatura
+![Invoice Summary](./assets/invoice-summary.png)
+
+### Registro de Nova Fatura
+![Invoice Setup Step 1](./assets/invoice-setup-1.png)
+![Invoice Setup Step 2](./assets/invoice-setup-2.png)
+
 ## 📁 Estrutura do Projeto
 
 ```
@@ -63,4 +80,90 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 👥 Autores
 
-- Help Agency Team 
+- [@davioliveeira](https://github.com/davioliveeira)
+
+---
+
+# [English Version] Slack Bot Invoices
+
+Slack Bot developed to assist Refine Agency with invoice management.
+
+## 🤖 Features
+
+- Invoice registration with multiple services
+- Automatic calculation of token and stablecoin values
+- Detailed invoice visualization
+- Support for multiple clients
+- Intuitive interface through Slack modals
+
+## 🚀 Technologies
+
+This project was developed using the following technologies:
+
+- [Node.js](https://nodejs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Slack Bolt](https://slack.dev/bolt-js/tutorial/getting-started)
+- [Supabase](https://supabase.com/)
+- [Express](https://expressjs.com/)
+
+## 📋 Prerequisites
+
+Before starting, you'll need to have installed on your machine:
+- [Node.js](https://nodejs.org/)
+- [Yarn](https://yarnpkg.com/)
+
+## 🔧 Installation
+
+1. Clone the repository
+```bash
+git clone [repository-url]
+```
+
+2. Install dependencies
+```bash
+yarn install
+```
+
+3. Configure environment variables
+Create a `.env` file in the project root and add the following variables:
+```env
+SLACK_BOT_TOKEN=your-slack-token
+SLACK_SIGNING_SECRET=your-signing-secret
+SUPABASE_URL=your-supabase-url
+SUPABASE_KEY=your-supabase-key
+```
+
+## 🏃‍♂️ Running the project
+
+To run the project in development mode:
+
+```bash
+yarn dev
+```
+
+## 📸 Screenshots
+
+### Invoice Summary
+![Invoice Summary](./assets/invoice-summary.png)
+
+### New Invoice Registration
+![Invoice Setup Step 1](./assets/invoice-setup-1.png)
+![Invoice Setup Step 2](./assets/invoice-setup-2.png)
+
+## 📁 Project Structure
+
+```
+src/
+├── app.ts         # Main application file
+├── commands/      # Bot commands
+├── events/        # Slack event handlers
+└── lib/          # Utilities and configurations
+```
+
+## 📝 License
+
+This project is under the MIT license. See the [LICENSE](LICENSE) file for more details.
+
+## 👥 Authors
+
+- [@davioliveeira](https://github.com/davioliveeira) 
