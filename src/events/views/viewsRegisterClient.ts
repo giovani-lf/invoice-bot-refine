@@ -42,7 +42,7 @@ app.view('submit_client_data', async ({ ack, body, view, client }) => {
       type: 'header',
       text: {
         type: 'plain_text',
-        text: '🎉 New Client Registered',
+        text: 'New Client Registered :file_cabinet:',
         emoji: true
       }
     },
@@ -68,7 +68,7 @@ app.view('submit_client_data', async ({ ack, body, view, client }) => {
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text: 'Now that the client has been created, you can register an invoice for the services provided to them.\n\nWould you like to continue and create an invoice now?'
+        text: 'The client has been successfully added. You can now register an invoice for the services provided.\n\nWould you like to continue and create an invoice now?'
       }
     },
     {
