@@ -52,12 +52,12 @@ app.action('open_register_invoice', async ({ ack, body, client }) => {
         },
         {
           type: 'input',
-          block_id: 'invoice_sent_date',
-          label: { type: 'plain_text', text: 'Invoice Date' },
+          block_id: 'invoice_due_date',
+          label: { type: 'plain_text', text: 'Due Date (day of the month)' },
           element: {
             type: 'datepicker',
             action_id: 'input',
-            placeholder: { type: 'plain_text', text: 'Select a date' }
+            placeholder: { type: 'plain_text', text: 'Pick a date (e.g. 28)' }
           }
         }
       ]
