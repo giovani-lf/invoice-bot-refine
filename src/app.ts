@@ -1,12 +1,16 @@
 import { app, receiver } from './lib/slackClient';
 
 import './commands/ping';
+import './commands/quickSetup';
 import './commands/registerClient';
 import './commands/registerInvoice';
+import './commands/registerService';
 import './events/actions/actionRegisterClient';
-import './events/views/viewsRegisterClient';
 import './events/actions/actionsInvoice';
+import './events/actions/actionRegisterService';
 import './events/views/viewsInvoice';
+import './events/views/viewsRegisterClient';
+import './events/views/viewsRegisterService';
 
 
 (async () => {
