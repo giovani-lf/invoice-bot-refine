@@ -5,17 +5,13 @@ app.view('submit_client_data', async ({ ack, body, view, client }) => {
   const values = view.state.values;
 
   const fieldMap: Record<string, string> = {
-    entity_name: 'entity_name',
+    project_name: 'project_name',
     entity_full_name: 'entity_full_name',
-    signor: 'signor_full_name',
-    signor_position: 'signor_full_position',
     url_logo_entity: 'logo_url',
-    legal_address: 'legal_address',
-    complement: 'complement_address',
-    city: 'city',
+    address_line_1: 'address_line_1',
+    complement: 'address_line_2',
+    address_location: 'address_location',
     country: 'country',
-    state: 'state',
-    zip_code: 'zip_code',
     email: 'stakeholder_emails'
   };
 
@@ -55,15 +51,11 @@ app.view('submit_client_data', async ({ ack, body, view, client }) => {
       fields: [
         {
           type: 'mrkdwn',
-          text: `*Entity Name:*\n${payload.entity_name}`
+          text: `*Project Name:*\n${payload.project_name}`
         },
         {
           type: 'mrkdwn',
-          text: `*Full Name:*\n${payload.entity_full_name}`
-        },
-        {
-          type: 'mrkdwn',
-          text: `*Signor:*\n${payload.signor_full_name}`
+          text: `*Entity Name:*\n${payload.entity_full_name}`
         },
         {
           type: 'mrkdwn',
@@ -86,7 +78,7 @@ app.view('submit_client_data', async ({ ack, body, view, client }) => {
           type: 'button',
           text: {
             type: 'plain_text',
-            text: '➕ Register Invoice'
+            text: '➕ Create Subscription Invoice'
           },
           style: 'primary',
           action_id: 'open_register_invoice'

@@ -16,7 +16,7 @@ app.command('/register-invoice', async ({ ack, body, client }) => {
         elements: [
           {
             type: 'button',
-            text: { type: 'plain_text', text: 'Register Invoice' },
+            text: { type: 'plain_text', text: 'Create Subscription Invoice' },
             action_id: 'open_register_invoice'
           }
         ]

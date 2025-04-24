@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+    @import url("https://fonts.googleapis.com/css?family=Inter:500,400");
+    * {
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+    }
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    body {
+        margin: 0 auto;
+        padding: 0;
+       
+    }
+    /* a blue color as a generic focus style */
+    button:focus-visible {
+      outline: 2px solid #4a90e2 !important;
+      outline: -webkit-focus-ring-color auto 5px !important;
+    }
+    a {
+      text-decoration: none;
+    }
+
+    :root {
+      --03-theme-alert-failed: rgba(233, 75, 79, 1);
+      --03-theme-alert-failed-10: rgba(233, 75, 79, 0.1);
+    }
+    .haiku-invoice {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: flex-start;
+      position: relative;
+      background-color: #f2f2f2;
+      overflow: hidden;
+    }
+
+    .haiku-invoice .header-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40.89px;
+      padding: 19.88px 39.77px;
+      position: relative;
+      align-self: stretch;
+      width: 100%;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      align-self: stretch;
+      width: 100%;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .invoice-number {
+      display: flex;
+      width: 79.54px;
+      align-items: center;
+      gap: 33.41px;
+      position: relative;
+    }
+
+    .haiku-invoice .div-2 {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4.09px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .invoice-number-label {
+      position: relative;
+      align-self: stretch;
+      margin-top: -1.02px;
+      opacity: 0.6;
+      font-family: "Inter", Helvetica;
+      font-weight: 400;
+      color: #000000;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .invoice-number-value {
+      position: relative;
+      align-self: stretch;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #000000;
+      font-size: 14px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .company-name {
+      position: relative;
+      width: 89.08px;
+      height: 12.73px;
+      font-family: "MADE Outer Sans Alt-Light", Helvetica;
+      font-weight: 300;
+      color: #272b30;
+      font-size: 14px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .due-date-container {
+      display: flex;
+      flex-direction: column;
+      width: 79.54px;
+      align-items: flex-end;
+      gap: 4.09px;
+      position: relative;
+    }
+
+    .haiku-invoice .due-date-label {
+      position: relative;
+      width: fit-content;
+      margin-top: -1.02px;
+      opacity: 0.6;
+      font-family: "Inter", Helvetica;
+      font-weight: 400;
+      color: #000000;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .text-wrapper {
+      position: relative;
+      width: fit-content;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #000000;
+      font-size: 14px;
+      letter-spacing: 0;
+      line-height: normal;
+      white-space: nowrap;
+    }
+
+    .haiku-invoice .top-section {
+      display: flex;
+      height: 100%;
+      align-items: flex-start;
+      position: relative;
+      align-self: stretch;
+      width: 100%;
+      background-color: #ffffff;
+      border-radius: 19.09px 19.09px 0px 0px;
+      border-top-width: 1.03px;
+      border-top-style: solid;
+      border-bottom-width: 1.02px;
+      border-bottom-style: solid;
+      border-color: #0000000d;
+      padding: 32px 0;
+    }
+
+    .haiku-invoice .container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 0 40px;
+      position: relative;
+      flex: 1;
+      flex-grow: 1;
+      border-radius: 12.27px;
+      overflow: hidden;
+    }
+
+    .haiku-invoice .sender-info {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .div-3 {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      position: relative;
+      align-self: stretch;
+      width: 100%;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .div-4 {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6.13px;
+      padding: 4.09px 8.18px;
+      position: relative;
+      flex: 0 0 auto;
+      background-color: #f7f7f7;
+      border-radius: 20.44px;
+    }
+
+    .haiku-invoice .img {
+      position: relative;
+      width: 10.22px;
+      height: 10.22px;
+    }
+
+    .haiku-invoice .text-wrapper-2 {
+      position: relative;
+      width: fit-content;
+      margin-top: -1.02px;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      font-size: 10.22px;
+      letter-spacing: 0;
+      line-height: normal;
+      white-space: nowrap;
+    }
+
+    .haiku-invoice .sender-info-2 {
+      display: flex;
+      align-items: center;
+      gap: 9.54px;
+      position: relative;
+      align-self: stretch;
+      width: 100%;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .sender-logo {
+      display: flex;
+      width: 39.77px;
+      height: 39.77px;
+      align-items: center;
+      justify-content: center;
+      gap: 7.95px;
+      padding: 11.14px;
+      position: relative;
+      background-color: #f8fafb;
+      border-radius: 61.33px;
+      overflow: hidden;
+    }
+
+    .haiku-invoice .layer {
+      position: relative;
+      width: 22.98px;
+      height: 16.27px;
+      margin-left: -2.74px;
+      margin-right: -2.74px;
+    }
+
+    .haiku-invoice .sender-name {
+      position: relative;
+      align-self: stretch;
+      margin-top: -1.02px;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .sender-organization {
+      position: relative;
+      align-self: stretch;
+      opacity: 0.6;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      font-size: 14px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .div-5 {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 0px 8px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .div-6 {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 8px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .img-2 {
+      position: relative;
+      width: 16.35px;
+      height: 16.35px;
+    }
+
+    .haiku-invoice .text-wrapper-3 {
+      position: relative;
+      align-self: stretch;
+      margin-top: -1.02px;
+      opacity: 0.6;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .div-7 {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8.18px;
+      padding: 4.09px 8.18px;
+      position: relative;
+      flex: 0 0 auto;
+      background-color: #f7f7f7;
+      border-radius: 20.44px;
+    }
+
+    .haiku-invoice .sender-city-section {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 8.18px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .sender-city {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 19.09px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .sender-country-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 7.95px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .div-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8.18px;
+      padding: 3.07px 8.18px;
+      position: relative;
+      flex: 0 0 auto;
+      background-color: #f7f7f7;
+      border-radius: 11.24px;
+    }
+
+    .haiku-invoice .divider {
+      position: relative;
+      align-self: stretch;
+      width: 1.02px;
+    }
+
+    .haiku-invoice .receiver-info-wrapper {
+      align-items: flex-start;
+      gap: 24px;
+      padding: 0 40px;
+      flex: 1;
+      flex-grow: 1;
+      border-radius: 12.27px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      align-self: stretch;
+    }
+
+    .haiku-invoice .receiver-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      position: relative;
+      align-self: stretch;
+      width: 100%;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .receiver-label {
+      position: relative;
+      width: 42.95px;
+      margin-top: -1.02px;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      font-size: 10.2px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .receiver-profile-row {
+      align-items: center;
+      gap: 9.54px;
+      padding: 0px 6.36px;
+      align-self: stretch;
+      width: 100%;
+      display: flex;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .receiver-profile {
+      display: flex;
+      flex-direction: column;
+      width: 35.79px;
+      height: 35.79px;
+      align-items: center;
+      justify-content: center;
+      gap: 5.34px;
+      padding: 2.67px 1.6px;
+      position: relative;
+      background-color: #f8fafb;
+      border-radius: 41.21px;
+      overflow: hidden;
+    }
+
+    .haiku-invoice .union-wrapper {
+      flex-direction: column;
+      width: 13.52px;
+      align-items: flex-start;
+      gap: 7.95px;
+      display: flex;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .union {
+      position: relative;
+      width: 15.45px;
+      height: 13.52px;
+      margin-right: -1.93px;
+    }
+
+    .haiku-invoice .receiver-name {
+      position: relative;
+      width: fit-content;
+      margin-top: -1.02px;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .text-wrapper-4 {
+      position: relative;
+      width: fit-content;
+      opacity: 0.6;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      font-size: 14px;
+      letter-spacing: 0;
+      line-height: normal;
+      white-space: nowrap;
+    }
+
+    .haiku-invoice .bottom-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 14.32px;
+      padding: 38.18px 39.77px;
+      position: relative;
+      flex: 1;
+      align-self: stretch;
+      width: 100%;
+      flex-grow: 1;
+      background-color: #ffffff;
+    }
+
+    .haiku-invoice .subscription {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex: 1;
+      width: 100%;
+      flex-grow: 1;
+      position: relative;
+      align-self: stretch;
+    }
+
+    .haiku-invoice .subscription-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14.32px;
+      width: 100%;
+      flex: 0 0 auto;
+      position: relative;
+      align-self: stretch;
+    }
+
+    .haiku-invoice .subscription-label {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8.18px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .subscription-label-2 {
+      margin-top: -1.02px;
+      opacity: 0.6;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      font-size: 10.2px;
+      letter-spacing: 0;
+      line-height: normal;
+      position: relative;
+      align-self: stretch;
+    }
+
+    .haiku-invoice .div-wrapper-2 {
+      display: inline-flex;
+      align-items: center;
+      gap: 40.89px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .amount-label-text {
+      display: flex;
+      flex-direction: column;
+      width: 61.33px;
+      align-items: flex-end;
+      gap: 8.18px;
+      position: relative;
+    }
+
+    .haiku-invoice .amount-label {
+      position: relative;
+      width: fit-content;
+      margin-top: -1.02px;
+      opacity: 0.6;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      font-size: 10.2px;
+      text-align: right;
+      letter-spacing: 0;
+      line-height: normal;
+      white-space: nowrap;
+    }
+
+    .haiku-invoice .product-development {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px 0px 14.31px;
+      position: relative;
+      align-self: stretch;
+      width: 100%;
+      flex: 0 0 auto;
+      border-bottom-width: 1.02px;
+      border-bottom-style: solid;
+      border-color: #0000000d;
+    }
+
+    .haiku-invoice .product-development-2 {
+      display: inline-flex;
+      align-items: center;
+      gap: 6.36px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .product-development-3 {
+      position: relative;
+      width: 7.16px;
+      height: 7.16px;
+      background-color: #52b9a9;
+      border-radius: 3.07px;
+    }
+
+    .haiku-invoice .product-development-4 {
+      position: relative;
+      width: fit-content;
+      margin-top: -0.8px;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      font-size: 12.25px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .p {
+      position: relative;
+      width: fit-content;
+      opacity: 0.6;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      font-size: 8px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .product-development-5 {
+      position: relative;
+      width: fit-content;
+      margin-top: -1.02px;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      font-size: 16px;
+      text-align: right;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .summary-container {
+      width: 235.43px;
+      gap: 14.32px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .div-wrapper-3 {
+      display: inline-flex;
+      align-items: center;
+      gap: 4.77px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .text-wrapper-5 {
+      opacity: 0.6;
+      font-size: 14px;
+      white-space: nowrap;
+      position: relative;
+      width: fit-content;
+      margin-top: -0.8px;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .div-wrapper-4 {
+      display: inline-flex;
+      align-items: center;
+      gap: 3.18px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .text-wrapper-6 {
+      font-size: 16px;
+      text-align: right;
+      position: relative;
+      width: fit-content;
+      margin-top: -0.8px;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .stablecoin-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12.73px 0px 0px;
+      position: relative;
+      align-self: stretch;
+      width: 100%;
+      flex: 0 0 auto;
+      border-top-width: 0.8px;
+      border-top-style: solid;
+      border-color: #0000000d;
+    }
+
+    .haiku-invoice .tokens-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 170.7px;
+      position: relative;
+      align-self: stretch;
+      width: 100%;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .tokens-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      flex: 1;
+      flex-grow: 1;
+    }
+
+    .haiku-invoice .tokens-text {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3.18px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .tokens-label-row {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 6.36px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .tokens-icon {
+      display: flex;
+      width: 16.32px;
+      height: 16.32px;
+      align-items: center;
+      justify-content: center;
+      padding: 2.42px;
+      position: relative;
+      margin-top: -0.6px;
+      margin-bottom: -0.6px;
+      margin-right: -0.6px;
+      background-color: #f8fafb;
+      border-radius: 15.95px;
+      overflow: hidden;
+      border: 0.6px solid;
+      border-color: #0000000d;
+    }
+
+    .haiku-invoice .layer-2 {
+      position: relative;
+      width: 9.73px;
+      height: 6.89px;
+    }
+
+    .haiku-invoice .tokens-description {
+      position: relative;
+      width: fit-content;
+      opacity: 0.6;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #717171;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .tokens-amount {
+      position: relative;
+      width: fit-content;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      font-size: 16px;
+      text-align: right;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .total-payment-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12.73px 0px 0px;
+      position: relative;
+      align-self: stretch;
+      width: 100%;
+      flex: 0 0 auto;
+      border-top-width: 1.03px;
+      border-top-style: solid;
+      border-color: #0000000d;
+    }
+
+    .haiku-invoice .total-payment-amount {
+      position: relative;
+      width: fit-content;
+      margin-top: -1.03px;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #272b30;
+      font-size: 16px;
+      text-align: right;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .container-2 {
+      align-items: center;
+      gap: 19.09px;
+      padding: 0px 40.89px 32.71px;
+      width: 100%;
+      flex: 0 0 auto;
+      background-color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      align-self: stretch;
+    }
+
+    .haiku-invoice .line {
+      position: relative;
+      width: 513.15px;
+      height: 1px;
+    }
+
+    .haiku-invoice .payment-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px 6.36px;
+      position: relative;
+      align-self: stretch;
+      width: 100%;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .payment-details {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12.73px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .frame {
+      justify-content: center;
+      gap: 6.36px;
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .frame-2 {
+      justify-content: center;
+      padding: 3.18px 6.36px;
+      background-color: var(--03-theme-alert-failed-10);
+      border-radius: 9.86px;
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .text-wrapper-7 {
+      position: relative;
+      width: fit-content;
+      margin-top: -0.62px;
+      font-family: "Manrope", Helvetica;
+      font-weight: 600;
+      color: var(--03-theme-alert-failed);
+      font-size: 8px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .payment-icons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      align-self: stretch;
+      width: 100%;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .frame-3 {
+      gap: 6px;
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .payment-icon {
+      position: relative;
+      width: 22.5px;
+      height: 22.5px;
+      background-image: url(https://c.animaapp.com/YNT0PCyh/img/usd-coin-usdc-logo-1.svg);
+      background-size: 100% 100%;
+    }
+
+    .haiku-invoice .amount {
+      position: relative;
+      width: fit-content;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #000000;
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .amount-info {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4.09px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .frame-4 {
+      justify-content: center;
+      gap: 4px;
+      padding: 3.18px 4px;
+      background-color: #e9e9e9;
+      border-radius: 7952.78px;
+      border: 0.8px solid;
+      border-color: #0000000d;
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .group {
+      position: relative;
+      width: 11.93px;
+      height: 11.93px;
+    }
+
+    .haiku-invoice .token-type {
+      position: relative;
+      width: fit-content;
+      opacity: 0.6;
+      font-family: "Inter", Helvetica;
+      font-weight: 600;
+      color: #000000;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .haiku-invoice .wallet-info {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6.36px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .wallet-header {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3.18px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .wallet-label {
+      position: relative;
+      width: fit-content;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #666666;
+      font-size: 14px;
+      letter-spacing: 0;
+      line-height: normal;
+      white-space: nowrap;
+    }
+
+    .haiku-invoice .wallet-icon {
+      position: relative;
+      width: 15.91px;
+      height: 15.91px;
+    }
+
+    .haiku-invoice .wallet-address {
+      align-items: center;
+      gap: 6.36px;
+      padding: 0px 6.36px 0px 0px;
+      display: inline-flex;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .wallet-address-wrapper {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 3.98px;
+      display: inline-flex;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .haiku-invoice .wallet-address-2 {
+      position: relative;
+      width: fit-content;
+      margin-top: -0.8px;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      color: #000000;
+      font-size: 14px;
+      letter-spacing: 0;
+      line-height: normal;
+      white-space: nowrap;
+    }
+  </style>
+  <body>
+    <div class="haiku-invoice">
+      <div class="header-container">
+        <div class="div">
+          <div class="invoice-number">
+            <div class="div-2">
+              <div class="invoice-number-label">Invoice Number</div>
+              <div class="invoice-number-value">#REF{{ $json.invoices_contracts.ref_invoice_number }}</div>
+            </div>
+          </div>
+          <div class="company-name">
+            <svg width="91" height="9" viewBox="0 0 91 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.21246 6.5079C7.21246 7.44425 7.41462 7.91243 7.64871 8.15715H6.09522C5.87177 7.79538 5.87177 7.49745 5.87177 6.64623C5.87177 5.76308 5.61641 5.25234 4.14804 5.25234H1.44539V8.15715H0.136628V0.708912H4.63749C6.44635 0.708912 7.39334 1.43246 7.39334 2.8689C7.39334 4.0287 6.63788 4.51816 5.93562 4.69904C6.89325 4.95441 7.21246 5.41194 7.21246 6.5079ZM4.55237 4.19895C5.77601 4.19895 6.05266 3.58181 6.05266 2.98595C6.05266 2.08152 5.48872 1.81551 4.42469 1.81551H1.44539V4.19895H4.55237ZM14.665 3.77333V4.87993H8.82347V3.77333H14.665ZM8.82347 7.03992H15.0587V8.15715H8.82347V7.03992ZM14.963 0.708912V1.81551H8.82347V0.708912H14.963ZM16.44 8.15715V3.9755H22.271V5.08209H17.7488V8.15715H16.44ZM16.44 0.708912H22.5795V1.81551H16.44V0.708912ZM23.8592 0.708912H25.168V8.15715H23.8592V0.708912ZM32.9269 0.708912H34.2357V8.15715H32.6716L28.192 2.27304V8.15715H26.8726V0.708912H28.4367L32.9269 6.59302V0.708912ZM41.775 3.77333V4.87993H35.9335V3.77333H41.775ZM35.9335 7.03992H42.1687V8.15715H35.9335V7.03992ZM42.073 0.708912V1.81551H35.9335V0.708912H42.073ZM50.1688 3.85845C52.2756 4.14574 53.5418 4.46495 53.5418 5.91204C53.5418 7.31657 52.4884 8.31676 49.8815 8.31676C47.1044 8.31676 45.9978 7.28465 45.9978 5.94396H47.4023C47.4448 6.72071 48.3174 7.21016 49.924 7.21016C51.3073 7.21016 52.1798 6.86967 52.1798 6.07165C52.1798 5.17786 50.9455 5.25234 48.8707 4.91185C47.0831 4.62456 46.2531 4.04998 46.2531 2.83698C46.2531 1.53886 47.2001 0.559948 49.658 0.559948C52.2117 0.559948 53.18 1.71975 53.18 2.78378H51.8393C51.7755 2.24112 51.2115 1.66654 49.6261 1.66654C47.9662 1.66654 47.5725 2.16664 47.5725 2.74122C47.5725 3.54988 48.5727 3.63501 50.1688 3.85845ZM60.9104 0.708912V1.81551H58.0907V8.15715H56.7819V1.81551H53.9622V0.708912H60.9104ZM62.1915 5.53963V0.708912H63.5109V5.53963H62.1915ZM67.9479 0.708912H69.2673V5.1885C69.2673 7.79538 67.5329 8.30612 65.724 8.30612V7.21016C67.2775 7.21016 67.9479 6.60366 67.9479 5.08209V0.708912ZM74.0362 0.708912C76.4409 0.708912 78.4307 1.53886 78.4307 4.43303C78.4307 7.31657 76.4409 8.15715 74.0362 8.15715H70.9718V3.9755H72.2806V7.03992H73.8766C75.9196 7.03992 77.09 6.3483 77.09 4.43303C77.09 2.50713 75.9196 1.81551 73.8766 1.81551H70.9718V0.708912H74.0362ZM79.7106 0.708912H81.0194V8.15715H79.7106V0.708912ZM86.5971 0.559948C88.9167 0.559948 90.8851 1.85807 90.8851 4.43303C90.8851 7.008 88.9167 8.31676 86.5971 8.31676C84.2668 8.31676 82.2984 7.008 82.2984 4.43303C82.2984 1.85807 84.2668 0.559948 86.5971 0.559948ZM86.5971 7.2208C88.4804 7.2208 89.5338 6.09293 89.5338 4.43303C89.5338 2.78378 88.4804 1.6559 86.5971 1.6559C84.7031 1.6559 83.6497 2.78378 83.6497 4.43303C83.6497 6.09293 84.7031 7.2208 86.5971 7.2208Z" fill="#272B30"/>
+            </svg>
+          </div>
+          <div class="due-date-container">
+            <div class="due-date-label">Due Date</div>
+            <div class="text-wrapper">{{ $json.invoices_contracts.sent_date.toDateTime().format('dd/MM/yyyy') }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="top-section">
+        <div class="container">
+          <div class="sender-info">
+            <div class="div-3">
+              <div class="div-4">
+                <img
+                  class="img"
+                  src="https://c.animaapp.com/YNT0PCyh/img/sender-arrow-icon.svg"
+                />
+                <div class="text-wrapper-2">From</div>
+              </div>
+              <div class="sender-info-2">
+                <div class="sender-logo">
+                  <img
+                    class="layer"
+                    src="https://c.animaapp.com/YNT0PCyh/img/layer-1@2x.png"
+                  />
+                </div>
+                <div class="div-2">
+                  <div class="sender-name">{{ $json.client.entity_name }}</div>
+                  <div class="sender-organization">{{ $json.client.entity_full_name }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="div-5">
+              <div class="div-6">
+                <img
+                  class="img-2"
+                  src="https://c.animaapp.com/YNT0PCyh/img/sender-address-icon.svg"
+                />
+                <div class="div-2">
+                  <div class="text-wrapper-3">Address</div>
+                  <div class="div-7">
+                    <div class="text-wrapper-2">{{ $json.client.legal_address }}</div>
+                  </div>
+                  <div class="div-7">
+                    <p class="text-wrapper-2">
+                      {{ $json.client.complement_address }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="sender-city-section">
+                <div class="sender-city">
+                  <div class="div-6">
+                    <img
+                      class="img-2"
+                      src="https://c.animaapp.com/YNT0PCyh/img/sender-city-icon.svg"
+                    />
+                    <div class="div-2">
+                      <div class="text-wrapper-3">City, State, Zip</div>
+                      <div class="div-7">
+                        <p class="text-wrapper-2">
+                          {{ $json.client.city }}, {{ $json.client.state }} - {{ $json.client.zip_code }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sender-country-row" style="margin-left: 25px;">
+                  <div class="div-2">
+                    <div class="text-wrapper-3">Country</div>
+                    <div class="div-wrapper">
+                      <div class="text-wrapper-2">{{ $json.client.country }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img
+          class="divider"
+          src="https://c.animaapp.com/YNT0PCyh/img/divider.svg"
+        />
+        <div class="receiver-info-wrapper">
+          <div class="receiver-info">
+            <div class="div-3">
+              <div class="div-4">
+                <img
+                  class="img"
+                  src="https://c.animaapp.com/YNT0PCyh/img/receiver-arrow-icon.svg"
+                />
+                <div class="receiver-label">Receiver</div>
+              </div>
+              <div class="receiver-profile-row">
+                <div class="receiver-profile">
+                  <div class="union-wrapper">
+                    <img
+                      class="union"
+                      src="https://c.animaapp.com/YNT0PCyh/img/union.svg"
+                    />
+                  </div>
+                </div>
+                <div class="div-2">
+                  <div class="receiver-name">Refine Studio</div>
+                  <div class="text-wrapper-4">Refine Studio LTD.</div>
+                </div>
+              </div>
+            </div>
+            <div class="div-5">
+              <div class="div-6">
+                <img
+                  class="img-2"
+                  src="https://c.animaapp.com/YNT0PCyh/img/receiver-address-icon.svg"
+                />
+                <div class="div-2">
+                  <div class="text-wrapper-3">Address</div>
+                  <div class="div-7">
+                    <div class="text-wrapper-2">Intershore Chambers</div>
+                  </div>
+                </div>
+              </div>
+              <div class="div-6">
+                <img
+                  class="img-2"
+                  src="https://c.animaapp.com/YNT0PCyh/img/receiver-city-icon.svg"
+                />
+                <div class="div-2">
+                  <div class="text-wrapper-3">City, State, Zip</div>
+                  <div class="div-7">
+                    <div class="text-wrapper-2">Road Town, Tortola, VG1110</div>
+                  </div>
+                </div>
+              </div>
+              <div class="div-6" style="margin-left: 25px;">
+                <div class="div-2">
+                  <div class="text-wrapper-3">Country</div>
+                  <div class="div-wrapper">
+                    <div class="text-wrapper-2">British Virgin Islands.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-section">
+        <div class="subscription">
+          <div class="subscription-header">
+            <div class="div">
+              <div class="subscription-label">
+                <div class="subscription-label-2">Item</div>
+              </div>
+              <div class="div-wrapper-2">
+                <div class="amount-label-text">
+                  <div class="amount-label">Amount</div>
+                </div>
+              </div>
+            </div>
+            <div class="product-development">
+              <div class="product-development-2">
+                <div class="product-development-3"></div>
+                <div class="product-development-2">
+                  <div class="product-development-4">
+                    {{ $json.service.type }}
+                  </div>
+                  <p class="p"> - {{ $json.service.description }}</p>
+                </div>
+              </div>
+              <div class="div-wrapper-2">
+                <div class="product-development-5">${{ $json.invoices_contracts.amount.format('de-DE') }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="summary-container">
+            <div class="div-3">
+              <div class="div">
+                <div class="div-wrapper-3">
+                  <div class="text-wrapper-5">Subtotal</div>
+                </div>
+                <div class="div-wrapper-4">
+                  <div class="text-wrapper-6">${{ $json.invoices_contracts.amount.format('de-DE') }}</div>
+                </div>
+              </div>
+              <div class="stablecoin-row">
+                <div class="div-wrapper-3">
+                  <div class="text-wrapper-5">Payable in Stablecoin</div>
+                </div>
+                <div class="div-wrapper-4">
+                  <div class="text-wrapper-6">$0.00</div>
+                </div>
+              </div>
+              <div class="tokens-row">
+                <div class="tokens-container">
+                  <div class="tokens-text">
+                    <div class="tokens-label-row">
+                      <div class="text-wrapper-5">Payable in Tokens</div>
+                      <div class="tokens-icon">
+                        <img
+                          class="layer-2"
+                          src="https://c.animaapp.com/YNT0PCyh/img/layer-1-1@2x.png"
+                        />
+                      </div>
+                    </div>
+                    <p class="tokens-description">($0.00 at 2x Token Rate)</p>
+                  </div>
+                  <div class="tokens-amount">$0.00</div>
+                </div>
+              </div>
+            </div>
+            <div class="total-payment-row">
+              <div class="text-wrapper-4">Total Payment</div>
+              <div class="total-payment-amount">${{ $json.invoices_contracts.amount.format('de-DE') }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-2">
+        <img
+          class="line"
+          src="https://c.animaapp.com/YNT0PCyh/img/line-71.png"
+        />
+        <div class="payment-info">
+          <div class="payment-details">
+            <div class="frame">
+              <div class="text-wrapper">Stablecoin Payment</div>
+              <div class="frame-2">
+                <div class="text-wrapper-7">Payment Due</div>
+              </div>
+            </div>
+            <div class="payment-icons">
+              <div class="frame-3">
+                <div class="payment-icon"></div>
+                <div class="amount">{{ $json.invoices_contracts.amount.format('de-DE') }} {{ $('General Infos').item.json.config.asset }}</div>
+              </div>
+              <div class="amount-info">
+                <div class="frame-4">
+                  <img
+                    class="group"
+                    src="https://c.animaapp.com/YNT0PCyh/img/group@2x.png"
+                  />
+                  <div class="token-type">{{ $('General Infos').item.json.config.chain }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wallet-info">
+            <div class="wallet-header">
+              <div class="wallet-label">Wallet Address</div>
+              <img
+                class="wallet-icon"
+                src="https://c.animaapp.com/YNT0PCyh/img/wallet-icon.svg"
+              />
+            </div>
+            <div class="wallet-address">
+              <div class="wallet-address-wrapper">
+                <div class="wallet-address-2">
+                  {{ $('General Infos').item.json.config.wallet_address }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -13,13 +13,13 @@ app.view('invoice_step_1', async ({ ack, view }) => {
     const metadata = JSON.parse(view.private_metadata);
     const selectedServices = extractMulti('service_id');
     const { data: allServices } = await supabase
-    .from('services')
-    .select('service_id, service_type');
-  
+      .from('services')
+      .select('service_id, service_type');
+
     const serviceBlocks = selectedServices.map(serviceId => {
       const service = allServices?.find(s => s.service_id.toString() === serviceId);
       const labelText = service ? `Cost for ${service.service_type}` : `Cost for service ID ${serviceId}`;
-    
+
       return {
         type: 'input' as const,
         block_id: `cost_${serviceId}`,
@@ -32,7 +32,6 @@ app.view('invoice_step_1', async ({ ack, view }) => {
       };
     });
 
-    // Define updated view
     const updatedView = {
       type: 'modal' as const,
       callback_id: 'invoice_step_2',
@@ -40,8 +39,7 @@ app.view('invoice_step_1', async ({ ack, view }) => {
         ...metadata,
         client_id: extractSelect('client_id'),
         service_id: selectedServices,
-        invoice_sent_date: values['invoice_sent_date']?.input?.selected_date,
-        type: extractSelect('type')
+        invoice_sent_date: values['invoice_sent_date']?.input?.selected_date
       }),
       title: { type: 'plain_text' as const, text: 'Invoice Setup - Step 2' },
       submit: { type: 'plain_text' as const, text: 'Submit' },
@@ -70,7 +68,7 @@ app.view('invoice_step_1', async ({ ack, view }) => {
 
   } catch (error) {
     console.error('Failed to transition modal step:', error);
-    await ack(); // fallback ack to prevent UI timeout
+    await ack();
   }
 });
 
@@ -82,7 +80,6 @@ app.view('invoice_step_2', async ({ ack, view, client, body }) => {
   const refNumber = metadata.refNumber;
   const clientId = parseInt(metadata.client_id);
   const invoiceDate = metadata.invoice_sent_date;
-  const type = metadata.type;
   const serviceIds = metadata.service_id;
 
   const tokenMultiplier = parseFloat(extract('token_multiplier'));
@@ -104,7 +101,6 @@ app.view('invoice_step_2', async ({ ack, view, client, body }) => {
   const payload = {
     client_id: clientId,
     invoice_sent_date: invoiceDate,
-    type,
     ref_invoice_number: refNumber,
     token_multiplier: tokenMultiplier,
     total_amount: totalAmount,
@@ -114,12 +110,12 @@ app.view('invoice_step_2', async ({ ack, view, client, body }) => {
   };
 
   const { data: clientData } = await supabase
-  .from('clients')
-  .select('entity_name')
-  .eq('client_id', clientId)
-  .single();
+    .from('clients')
+    .select('project_name')
+    .eq('client_id', clientId)
+    .single();
 
-  const clientName = clientData?.entity_name || `Client ${clientId}`;
+  const clientName = clientData?.project_name || `Client ${clientId}`;
 
   try {
     const { data: invoice, error } = await supabase
@@ -158,34 +154,12 @@ app.view('invoice_step_2', async ({ ack, view, client, body }) => {
         {
           type: 'section',
           fields: [
-            {
-              type: 'mrkdwn',
-              text: `📅 *Invoice Date:*\n${invoiceDate}`
-            },
-            {
-              type: 'mrkdwn',
-              text: `🧾 *Invoice Type:*\n${type.charAt(0).toUpperCase() + type.slice(1)}`
-            },
-            {
-              type: 'mrkdwn',
-              text: `💸 *Total Amount:*\n$${totalAmount.toFixed(2)}`
-            },
-            {
-              type: 'mrkdwn',
-              text: `🪙 *Token Payment:*\n$${amountPayableTokens.toFixed(2)}`
-            },
-            {
-              type: 'mrkdwn',
-              text: `🏦 *Stablecoin Portion:*\n$${(totalAmount - amountPayableTokens).toFixed(2)}`
-            },
-            {
-              type: 'mrkdwn',
-              text: `📈 *Token Multiplier:*\nx${tokenMultiplier}`
-            },
-            {
-              type: 'mrkdwn',
-              text: `⚖️ *Avg. per Item:*\n$${invoiceAmount.toFixed(2)}`
-            }
+            { type: 'mrkdwn', text: `📅 *Invoice Date:*\n${invoiceDate}` },
+            { type: 'mrkdwn', text: `💸 *Total Amount:*\n$${totalAmount.toFixed(2)}` },
+            { type: 'mrkdwn', text: `🪙 *Token Payment:*\n$${amountPayableTokens.toFixed(2)}` },
+            { type: 'mrkdwn', text: `🏦 *Stablecoin Portion:*\n$${(totalAmount - amountPayableTokens).toFixed(2)}` },
+            { type: 'mrkdwn', text: `📈 *Token Multiplier:*\nx${tokenMultiplier}` },
+            { type: 'mrkdwn', text: `⚖️ *Avg. per Item:*\n$${invoiceAmount.toFixed(2)}` }
           ]
         },
         {
@@ -200,7 +174,7 @@ app.view('invoice_step_2', async ({ ack, view, client, body }) => {
       ],
       text: `🔐 Invoice ${refNumber} details.`
     });
-    
+
   } catch (err) {
     console.error('Error creating invoice:', err);
   }

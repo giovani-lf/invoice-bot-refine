@@ -16,7 +16,7 @@ app.command('/register-client', async ({ ack, body, client }) => {
         elements: [
           {
             type: 'button',
-            text: { type: 'plain_text', text: 'Register' },
+            text: { type: 'plain_text', text: 'Register Client' },
             action_id: 'open_register_modal'
           }
         ]
