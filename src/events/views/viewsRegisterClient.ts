@@ -23,6 +23,7 @@ app.view('submit_client_data', async ({ ack, body, view, client }) => {
     payload[supabaseColumn] = extract(modalField);
   }
 
+  // Verificação de email válido
   const emailRegex = /\S+@\S+\.\S+/;
   if (!emailRegex.test(payload['stakeholder_emails'])) {
     await ack({
@@ -34,7 +35,18 @@ app.view('submit_client_data', async ({ ack, body, view, client }) => {
     return;
   }
 
-  await supabase.from('clients').insert([payload]);
+  try {
+    const { error } = await supabase.from('clients').insert([payload]);
+    if (error) {
+      console.error('Supabase insert error:', error);
+      throw error;
+    }
+  } catch (err) {
+    console.error('Failed to insert client:', err);
+    await ack();
+    return;
+  }
+
   await ack();
 
   const clientInfoBlocks = [
@@ -42,7 +54,7 @@ app.view('submit_client_data', async ({ ack, body, view, client }) => {
       type: 'header',
       text: {
         type: 'plain_text',
-        text: 'New Client Registered :file_cabinet:',
+        text: '🗂️ New Client Registered',
         emoji: true
       }
     },
