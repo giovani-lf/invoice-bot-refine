@@ -2,8 +2,15 @@
   "name": "slack-bot-invoices",
   "version": "1.0.0",
   "description": "Slack Bot for Help Agency administrate Invoices ",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "dev": "ts-node src/app.ts",
+    "clean": "rm -rf dist",
+    "build:clean": "yarn clean && yarn build"
+  },
   "dependencies": {
     "@slack/bolt": "^4.2.1",
     "@supabase/supabase-js": "^2.49.4",
